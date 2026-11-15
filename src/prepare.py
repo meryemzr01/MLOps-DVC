@@ -20,11 +20,11 @@ prod, test = train_test_split(
 
 
 def apply_drift(d, seed):
-    """Simule un drift : montants en hausse + decalage de V1..V4."""
+    """Simule un drift sur les variables qui portent le signal de fraude."""
     d = d.copy()
     rng = np.random.default_rng(seed)
     d["Amount"] *= p["amount_factor"]
-    for c in ["V1", "V2", "V3", "V4"]:
+    for c in p["drift_features"]:
         d[c] += rng.normal(p["shift_mean"], 0.5, len(d))
     return d
 

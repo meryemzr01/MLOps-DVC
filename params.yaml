@@ -1,9 +1,10 @@
 ﻿prepare:
   train_ratio: 0.60
   prod_ratio: 0.15
-  retrain_with_drift: true
+  retrain_with_drift: false
   amount_factor: 3
-  shift_mean: 2.0
+  drift_features: [V10, V12, V14, V17]
+  shift_mean: -1.0
 
 train:
   n_estimators: 200
@@ -12,4 +13,3 @@ train:
 
 evaluate:
   threshold: 0.5
-
