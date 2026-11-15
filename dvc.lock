@@ -103,3 +103,28 @@ stages:
       hash: md5
       md5: dd71263dec92a8492e05f55bc5c74a8e
       size: 345
+  detect_drift:
+    cmd: python src/detect_drift.py
+    deps:
+    - path: data/processed/drift_test.csv
+      hash: md5
+      md5: 2017dc1228dd80eb73b09a48f6be8c4c
+      size: 38493965
+    - path: data/processed/test.csv
+      hash: md5
+      md5: bc7ae046c3646cf42842fb884b1af21a
+      size: 37812952
+    - path: src/detect_drift.py
+      hash: md5
+      md5: d463d33c639311c40825ec65691a8396
+      size: 1796
+    params:
+      params.yaml:
+        drift:
+          psi_threshold: 0.2
+          share_threshold: 0.1
+    outs:
+    - path: metrics/drift_report.json
+      hash: md5
+      md5: 2fc398a34bd7f8d7fe2a13a673aa6d0c
+      size: 2832

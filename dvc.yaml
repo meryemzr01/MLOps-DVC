@@ -31,3 +31,14 @@
     metrics:
     - metrics/metrics.json:
         cache: false
+  detect_drift:
+    cmd: python src/detect_drift.py
+    deps:
+    - src/detect_drift.py
+    - data/processed/test.csv
+    - data/processed/drift_test.csv
+    params:
+    - drift
+    metrics:
+    - metrics/drift_report.json:
+        cache: false

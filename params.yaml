@@ -14,3 +14,6 @@ train:
 evaluate:
   threshold: 0.5
 
+drift:
+  psi_threshold: 0.2
+  share_threshold: 0.1

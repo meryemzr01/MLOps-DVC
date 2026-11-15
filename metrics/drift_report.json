@@ -1,0 +1,166 @@
+{
+  "n_features": 30,
+  "n_drifted": 5,
+  "share_drifted": 0.167,
+  "max_psi": 1.5053,
+  "dataset_drift": true,
+  "drifted_features": [
+    "V17",
+    "V14",
+    "V10",
+    "V12",
+    "Amount"
+  ],
+  "features": {
+    "Time": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V1": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V2": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V3": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V4": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V5": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V6": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V7": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V8": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V9": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V10": {
+      "psi": 1.1959,
+      "ks_stat": 0.4691,
+      "drift": true
+    },
+    "V11": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V12": {
+      "psi": 1.1566,
+      "ks_stat": 0.4568,
+      "drift": true
+    },
+    "V13": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V14": {
+      "psi": 1.2395,
+      "ks_stat": 0.4823,
+      "drift": true
+    },
+    "V15": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V16": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V17": {
+      "psi": 1.5053,
+      "ks_stat": 0.5194,
+      "drift": true
+    },
+    "V18": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V19": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V20": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V21": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V22": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V23": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V24": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V25": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V26": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V27": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "V28": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "drift": false
+    },
+    "Amount": {
+      "psi": 0.4066,
+      "ks_stat": 0.235,
+      "drift": true
+    }
+  }
+}
