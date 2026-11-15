@@ -1,7 +1,7 @@
 ﻿prepare:
   train_ratio: 0.60
   prod_ratio: 0.15
-  retrain_with_drift: false
+  retrain_with_drift: true
   amount_factor: 3
   shift_mean: 2.0
 
@@ -12,3 +12,4 @@ train:
 
 evaluate:
   threshold: 0.5
+
