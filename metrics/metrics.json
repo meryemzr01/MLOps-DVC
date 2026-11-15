@@ -1,20 +1,20 @@
 {
   "normal": {
-    "pr_auc": 0.6832,
-    "roc_auc": 0.9592,
-    "precision": 0.4902,
-    "recall": 0.7353,
-    "f1": 0.5882,
-    "n": 42721,
-    "n_fraud": 34
+    "pr_auc": 0.8369,
+    "roc_auc": 0.9753,
+    "precision": 0.7407,
+    "recall": 0.813,
+    "f1": 0.7752,
+    "n": 71202,
+    "n_fraud": 123
   },
   "drift": {
-    "pr_auc": 0.7558,
-    "roc_auc": 0.9477,
-    "precision": 0.619,
-    "recall": 0.75,
-    "f1": 0.6783,
-    "n": 42722,
-    "n_fraud": 52
+    "pr_auc": 0.8113,
+    "roc_auc": 0.9737,
+    "precision": 0.8482,
+    "recall": 0.7724,
+    "f1": 0.8085,
+    "n": 71202,
+    "n_fraud": 123
   }
 }

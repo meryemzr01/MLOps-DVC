@@ -1,17 +1,9 @@
 ﻿stages:
-  simulate:
-    cmd: python src/simulate_drift.py
-    deps:
-    - src/simulate_drift.py
-    - data/raw/creditcard.csv
-    outs:
-    - data/production/stream_drifted.csv
   prepare:
     cmd: python src/prepare.py
     deps:
     - src/prepare.py
     - data/raw/creditcard.csv
-    - data/production/stream_drifted.csv
     params:
     - prepare
     outs:
