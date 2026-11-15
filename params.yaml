@@ -1,0 +1,12 @@
+﻿prepare:
+  train_ratio: 0.70
+  test_ratio: 0.15
+  retrain_with_drift: false
+
+train:
+  n_estimators: 200
+  max_depth: 4
+  learning_rate: 0.1
+
+evaluate:
+  threshold: 0.5

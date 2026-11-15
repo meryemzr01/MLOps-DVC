@@ -1,0 +1,41 @@
+﻿stages:
+  simulate:
+    cmd: python src/simulate_drift.py
+    deps:
+    - src/simulate_drift.py
+    - data/raw/creditcard.csv
+    outs:
+    - data/production/stream_drifted.csv
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - src/prepare.py
+    - data/raw/creditcard.csv
+    - data/production/stream_drifted.csv
+    params:
+    - prepare
+    outs:
+    - data/processed/train.csv
+    - data/processed/test.csv
+    - data/processed/drift_test.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - src/train.py
+    - data/processed/train.csv
+    params:
+    - train
+    outs:
+    - models/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - src/evaluate.py
+    - models/model.pkl
+    - data/processed/test.csv
+    - data/processed/drift_test.csv
+    params:
+    - evaluate
+    metrics:
+    - metrics/metrics.json:
+        cache: false

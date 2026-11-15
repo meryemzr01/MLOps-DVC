@@ -1,0 +1,102 @@
+schema: '2.0'
+stages:
+  simulate:
+    cmd: python src/simulate_drift.py
+    deps:
+    - path: data/raw/creditcard.csv
+      hash: md5
+      md5: e90efcb83d69faf99fcab8b0255024de
+      size: 150828752
+    - path: src/simulate_drift.py
+      hash: md5
+      md5: 193a9e0fef11cc44f63bd184029ba28f
+      size: 583
+    outs:
+    - path: data/production/stream_drifted.csv
+      hash: md5
+      md5: eb778b86997c5e5733a67a45728b72da
+      size: 23049624
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: data/production/stream_drifted.csv
+      hash: md5
+      md5: eb778b86997c5e5733a67a45728b72da
+      size: 23049624
+    - path: data/raw/creditcard.csv
+      hash: md5
+      md5: e90efcb83d69faf99fcab8b0255024de
+      size: 150828752
+    - path: src/prepare.py
+      hash: md5
+      md5: 7fd6dbaf56c083c29d1d9951a143a958
+      size: 979
+    params:
+      params.yaml:
+        prepare:
+          train_ratio: 0.7
+          test_ratio: 0.15
+          retrain_with_drift: false
+    outs:
+    - path: data/processed/drift_test.csv
+      hash: md5
+      md5: afb3e6929408d4e0caef48e58eddc2ac
+      size: 11521536
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 38243766200a89490634c6c109b1cc60
+      size: 22719740
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 8dfe380dc41f653d3db0819da3b91d1c
+      size: 105802770
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 8dfe380dc41f653d3db0819da3b91d1c
+      size: 105802770
+    - path: src/train.py
+      hash: md5
+      md5: 6729b7e1ea6b7e7621a9ea47ca6ab0ea
+      size: 688
+    params:
+      params.yaml:
+        train:
+          n_estimators: 200
+          max_depth: 4
+          learning_rate: 0.1
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 0f479b4c017a27a673e900028d84b562
+      size: 305196
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/drift_test.csv
+      hash: md5
+      md5: afb3e6929408d4e0caef48e58eddc2ac
+      size: 11521536
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 38243766200a89490634c6c109b1cc60
+      size: 22719740
+    - path: models/model.pkl
+      hash: md5
+      md5: 0f479b4c017a27a673e900028d84b562
+      size: 305196
+    - path: src/evaluate.py
+      hash: md5
+      md5: 106cf43f40008585f5da1ec4a0dd1822
+      size: 1151
+    params:
+      params.yaml:
+        evaluate:
+          threshold: 0.5
+    outs:
+    - path: metrics/metrics.json
+      hash: md5
+      md5: ec9d3f87a4d584877696af3afdfbbc3b
+      size: 345
