@@ -9,20 +9,20 @@ stages:
       size: 150828752
     - path: src/simulate_drift.py
       hash: md5
-      md5: 193a9e0fef11cc44f63bd184029ba28f
-      size: 583
+      md5: 9af17ddba87509b7501b753cf80acd62
+      size: 585
     outs:
     - path: data/production/stream_drifted.csv
       hash: md5
-      md5: eb778b86997c5e5733a67a45728b72da
-      size: 23049624
+      md5: 420017d45d585fcfd19bc3b4eb410a0a
+      size: 46023545
   prepare:
     cmd: python src/prepare.py
     deps:
     - path: data/production/stream_drifted.csv
       hash: md5
-      md5: eb778b86997c5e5733a67a45728b72da
-      size: 23049624
+      md5: 420017d45d585fcfd19bc3b4eb410a0a
+      size: 46023545
     - path: data/raw/creditcard.csv
       hash: md5
       md5: e90efcb83d69faf99fcab8b0255024de
@@ -34,29 +34,29 @@ stages:
     params:
       params.yaml:
         prepare:
-          train_ratio: 0.7
+          train_ratio: 0.55
           test_ratio: 0.15
-          retrain_with_drift: true
+          retrain_with_drift: false
     outs:
     - path: data/processed/drift_test.csv
       hash: md5
-      md5: afb3e6929408d4e0caef48e58eddc2ac
-      size: 11521536
+      md5: a8bb86ac4b20d8d8561e044e6df33767
+      size: 23017961
     - path: data/processed/test.csv
       hash: md5
-      md5: 38243766200a89490634c6c109b1cc60
-      size: 22719740
+      md5: d6b64f2ad55624f02ce7395c799378c0
+      size: 22714810
     - path: data/processed/train.csv
       hash: md5
-      md5: 5f8e10b5bf88fc29f1f208fe1f7c0aaf
-      size: 117330858
+      md5: 9e976ef1d373ea40095d186cb053da17
+      size: 83088082
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed/train.csv
       hash: md5
-      md5: 5f8e10b5bf88fc29f1f208fe1f7c0aaf
-      size: 117330858
+      md5: 9e976ef1d373ea40095d186cb053da17
+      size: 83088082
     - path: src/train.py
       hash: md5
       md5: 6729b7e1ea6b7e7621a9ea47ca6ab0ea
@@ -70,23 +70,23 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 4ec31473860325d4f66c7d917fadebae
-      size: 306556
+      md5: 4cafd379949b7fa19ecc977346109c70
+      size: 306012
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed/drift_test.csv
       hash: md5
-      md5: afb3e6929408d4e0caef48e58eddc2ac
-      size: 11521536
+      md5: a8bb86ac4b20d8d8561e044e6df33767
+      size: 23017961
     - path: data/processed/test.csv
       hash: md5
-      md5: 38243766200a89490634c6c109b1cc60
-      size: 22719740
+      md5: d6b64f2ad55624f02ce7395c799378c0
+      size: 22714810
     - path: models/model.pkl
       hash: md5
-      md5: 4ec31473860325d4f66c7d917fadebae
-      size: 306556
+      md5: 4cafd379949b7fa19ecc977346109c70
+      size: 306012
     - path: src/evaluate.py
       hash: md5
       md5: 106cf43f40008585f5da1ec4a0dd1822
@@ -98,5 +98,5 @@ stages:
     outs:
     - path: metrics/metrics.json
       hash: md5
-      md5: 2d84f6963f2825ce5f63f2aee535792e
-      size: 344
+      md5: bc04c8e62c52231348d340e20ec16864
+      size: 343
