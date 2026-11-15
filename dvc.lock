@@ -32,7 +32,7 @@ stages:
         prepare:
           train_ratio: 0.6
           prod_ratio: 0.15
-          retrain_with_drift: false
+          retrain_with_drift: true
           amount_factor: 3
           drift_features:
           - V10
@@ -51,15 +51,15 @@ stages:
       size: 37812952
     - path: data/processed/train.csv
       hash: md5
-      md5: aba0d310f3b43c0f4841982b1f533882
-      size: 90754546
+      md5: 612971fa21a0b504a5daa0efa3591bde
+      size: 113850312
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed/train.csv
       hash: md5
-      md5: aba0d310f3b43c0f4841982b1f533882
-      size: 90754546
+      md5: 612971fa21a0b504a5daa0efa3591bde
+      size: 113850312
     - path: src/train.py
       hash: md5
       md5: 6729b7e1ea6b7e7621a9ea47ca6ab0ea
@@ -73,8 +73,8 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 14fa0d545921c0aa41b2c440540c6a2c
-      size: 309956
+      md5: 594ba25b680d1797e7ff268c2002a73f
+      size: 314240
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -88,8 +88,8 @@ stages:
       size: 37812952
     - path: models/model.pkl
       hash: md5
-      md5: 14fa0d545921c0aa41b2c440540c6a2c
-      size: 309956
+      md5: 594ba25b680d1797e7ff268c2002a73f
+      size: 314240
     - path: src/evaluate.py
       hash: md5
       md5: 106cf43f40008585f5da1ec4a0dd1822
@@ -101,5 +101,5 @@ stages:
     outs:
     - path: metrics/metrics.json
       hash: md5
-      md5: 46c3aad2562ae74622fe418d743d6b91
-      size: 347
+      md5: dd71263dec92a8492e05f55bc5c74a8e
+      size: 345
