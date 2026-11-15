@@ -1,7 +1,7 @@
 ﻿prepare:
   train_ratio: 0.70
   test_ratio: 0.15
-  retrain_with_drift: false
+  retrain_with_drift: true
 
 train:
   n_estimators: 200
