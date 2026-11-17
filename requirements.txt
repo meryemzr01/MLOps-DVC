@@ -1,4 +1,4 @@
-﻿dvc[s3]
+dvc[s3]
 pyyaml
 pandas
 numpy

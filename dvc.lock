@@ -25,8 +25,8 @@ stages:
       size: 150828752
     - path: src/prepare.py
       hash: md5
-      md5: 681e53be22a58e4f2f9d64d73eb9261f
-      size: 1459
+      md5: 92f3db52435d963b72928c967ddf9d14
+      size: 1498
     params:
       params.yaml:
         prepare:
@@ -62,8 +62,8 @@ stages:
       size: 113850312
     - path: src/train.py
       hash: md5
-      md5: 6729b7e1ea6b7e7621a9ea47ca6ab0ea
-      size: 688
+      md5: 93df11aec91858f60cc1b686ae635eaa
+      size: 712
     params:
       params.yaml:
         train:
@@ -73,8 +73,8 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 594ba25b680d1797e7ff268c2002a73f
-      size: 314240
+      md5: 3a6efa05cccb26e1290b8618fbc987fc
+      size: 315818
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -88,12 +88,12 @@ stages:
       size: 37812952
     - path: models/model.pkl
       hash: md5
-      md5: 594ba25b680d1797e7ff268c2002a73f
-      size: 314240
+      md5: 3a6efa05cccb26e1290b8618fbc987fc
+      size: 315818
     - path: src/evaluate.py
       hash: md5
-      md5: 106cf43f40008585f5da1ec4a0dd1822
-      size: 1151
+      md5: f571722ecec8f4d55ee5d5d9e981a771
+      size: 1186
     params:
       params.yaml:
         evaluate:
@@ -101,8 +101,8 @@ stages:
     outs:
     - path: metrics/metrics.json
       hash: md5
-      md5: dd71263dec92a8492e05f55bc5c74a8e
-      size: 345
+      md5: c279b58248619d60ca078b8c1867f9ed
+      size: 347
   detect_drift:
     cmd: python src/detect_drift.py
     deps:
