@@ -1,0 +1,17 @@
+groups:
+  - name: ml-monitoring
+    rules:
+      - alert: DataDriftDetected
+        expr: drift_detected == 1
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Data drift detecte sur {{ $value }} (variables critiques: V10, V12, V14, V17, Amount)"
+      - alert: ApiHighLatency
+        expr: histogram_quantile(0.95, sum by (le) (rate(fraud_prediction_latency_seconds_bucket[1m]))) > 0.1
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Latence p95 superieure a 100 ms"
