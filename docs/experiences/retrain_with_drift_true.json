@@ -1,0 +1,20 @@
+{
+  "normal": {
+    "pr_auc": 0.8311,
+    "roc_auc": 0.9774,
+    "precision": 0.6392,
+    "recall": 0.8211,
+    "f1": 0.7189,
+    "n": 71202,
+    "n_fraud": 123
+  },
+  "drift": {
+    "pr_auc": 0.8246,
+    "roc_auc": 0.9733,
+    "precision": 0.5714,
+    "recall": 0.813,
+    "f1": 0.6711,
+    "n": 71202,
+    "n_fraud": 123
+  }
+}

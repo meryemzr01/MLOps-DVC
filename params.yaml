@@ -1,4 +1,4 @@
-﻿prepare:
+prepare:
   train_ratio: 0.60
   prod_ratio: 0.15
   retrain_with_drift: true
