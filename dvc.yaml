@@ -1,4 +1,4 @@
-﻿stages:
+stages:
   prepare:
     cmd: python src/prepare.py
     deps:

@@ -1,4 +1,4 @@
-﻿dvc[s3]
+dvc[s3]
 pyyaml
 pandas
 numpy
@@ -11,3 +11,4 @@ uvicorn
 psycopg2-binary
 requests
 prometheus-client
+streamlit
